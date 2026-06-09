@@ -1,16 +1,31 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import express from "express";
 import "dotenv/config";
+import cors from "cors";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+import connectDB from "./config/db.js";
 
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.5-flash",
-});
+import authRoutes from "./routes/auth.js";
+import chatRoutes from "./routes/chat.js";
 
-const result = await model.generateContent(
-  `You are a coding assistant that talks like a pirate.
+const app = express();
 
-Joke related to Computer Science`
-);
+const PORT = process.env.PORT || 8080;
 
-console.log(result.response.text());
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api", chatRoutes);
+
+// Connect DB then start server
+const startServer = async () => {
+    await connectDB();
+
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+};
+
+startServer();
