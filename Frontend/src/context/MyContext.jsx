@@ -13,11 +13,14 @@ export const MyProvider = ({ children }) => {
     // Messages of the currently opened thread
     const [prevChats, setPrevChats] = useState([]);
 
-    // Indicates whether a new chat has started
+    // For indicating whether a new chat is started
     const [newChat, setNewChat] = useState(true);
 
-    // Stores all threads shown in the sidebar
+    // For storing all the threads showing in the sidebar
     const [allThreads, setAllThreads] = useState([]);
+
+    // Sidebar collapsed
+    const [sidebarOpen, setSidebarOpen] = useState(true);
 
     const providerValues = {
         prompt,
@@ -36,7 +39,10 @@ export const MyProvider = ({ children }) => {
         setNewChat,
 
         allThreads,
-        setAllThreads
+        setAllThreads,
+
+        sidebarOpen,
+        setSidebarOpen
     };
 
     return (

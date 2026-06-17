@@ -1,7 +1,7 @@
 import Thread from "../models/Thread.js";
 import getGeminiAPIResponse from "../utils/geminiai.js";
 
-// Get all threads of logged-in user
+// To get all threads of logged-in user
 export const getThreads = async (req, res) => {
     try {
         const threads = await Thread.find({
@@ -113,7 +113,7 @@ export const chatWithAI = async (req, res) => {
                 thread.messages
             );
 
-        // Save AI response
+        // Saving AI response
         thread.messages.push({
             role: "assistant",
             content: assistantReply

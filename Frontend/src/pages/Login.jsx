@@ -67,7 +67,7 @@ const Login = () => {
             // Save token + user in AuthContext
             login(data.token, data.user);
 
-            // Redirect to Home
+            // Redirecting to Home
             navigate("/", { replace: true });
 
         } catch (err) {

@@ -1,0 +1,287 @@
+.sidebar {
+    background-color: #171717;
+    color: #b4b4b4;
+
+    height: 100vh;
+    width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex-shrink: 0;
+
+    transition: width 0.25s ease;
+    overflow: visible;
+}
+
+/* COLLAPSED SIDEBAR */
+
+.sidebar.collapsed {
+    width: 72px;
+}
+
+.sidebar.collapsed button {
+    justify-content: center;
+}
+
+.sidebar.collapsed .history {
+    display: none;
+}
+
+.sidebar.collapsed .sign {
+    display: none;
+}
+
+.sidebar.collapsed button p {
+    display: none;
+}
+
+.sidebar.collapsed .logo {
+    display: none;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 260px;
+    }
+
+    .sidebar.collapsed {
+        width: 72px;
+    }
+}
+
+/* Buttons */
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 10px;
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background-color: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+
+
+.sidebar button p {
+    margin: 0;
+}
+
+.sidebar button span {
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo */
+
+.logo {
+    height: 25px;
+    width: 25px;
+
+    background-color: white;
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+/* Thread History */
+
+.newChatBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+
+    gap: 12px;
+
+    width: calc(100% - 20px);
+
+    padding: 12px 14px;
+
+    margin: 10px;
+
+    border-radius: 12px;
+
+    background-color: transparent;
+
+    transition: background-color 0.2s ease;
+}
+
+.newChatBtn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.newChatBtn p {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.sidebarBtn,
+.newChatBtn {
+    position: relative;
+}
+
+/* Tooltip */
+
+.sidebarTooltip {
+    position: absolute;
+
+    left: 35px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background-color: #2a2a2a;
+
+    color: white;
+
+    font-size: 13px !important;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.15s ease;
+
+    z-index: 99999;
+}
+
+.iconWrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconWrapper:hover .sidebarTooltip,
+.sidebar.collapsed .newChatBtn:hover .sidebarTooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.history {
+    margin: 10px;
+    padding: 10px;
+
+    flex: 1;
+
+    overflow-y: auto;
+}
+
+.history li {
+    list-style: none;
+
+    cursor: pointer;
+
+    padding: 10px 12px;
+
+    margin-bottom: 0.3rem;
+
+    font-size: 14px;
+
+    border-radius: 10px;
+
+    position: relative;
+
+    transition: background-color 0.2s ease;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history li:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.highlighted {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Trash */
+
+.fa-trash {
+    opacity: 0;
+
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    transition: opacity 0.2s ease;
+}
+
+.history li:hover .fa-trash {
+    opacity: 1;
+    color: white;
+}
+
+.fa-trash:hover {
+    color: #f87171 !important;
+}
+
+/* Footer */
+
+.sign {
+    padding: 10px;
+
+    margin: 10px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sign p {
+    color: #b4b4b4;
+}
+
+/* Scrollbar */
+
+.history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.history::-webkit-scrollbar-thumb {
+    background: rgba(180, 180, 180, 0.3);
+    border-radius: 10px;
+}
+
+.history::-webkit-scrollbar-thumb:hover {
+    background: rgba(180, 180, 180, 0.5);
+}
+

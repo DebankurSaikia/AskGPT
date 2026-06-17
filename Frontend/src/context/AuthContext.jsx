@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Check authentication status on app load
+    // Checking authentication status on app load
     useEffect(() => {
         const checkAuth = async () => {
             const token = localStorage.getItem("token");
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
         checkAuth();
     }, []);
 
-    // Called after successful login/register
+    // Called after successful login or register
     const login = (token, userData) => {
         localStorage.setItem("token", token);
 

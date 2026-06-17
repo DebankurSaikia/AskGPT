@@ -30,7 +30,7 @@ const Signup = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        // Name Validation
+        // Name validation
         if (!name.trim()) {
             newErrors.name = "Name is required";
         } else if (name.trim().length < 2) {
@@ -39,7 +39,7 @@ const Signup = () => {
             newErrors.name = "Name cannot exceed 50 characters";
         }
 
-        // Email Validation
+        // Email validation
         if (!email.trim()) {
             newErrors.email = "Email is required";
         } else if (
@@ -48,7 +48,7 @@ const Signup = () => {
             newErrors.email = "Please enter a valid email address";
         }
 
-        // Password Validation
+        // Password validation
         if (!password.trim()) {
             newErrors.password = "Password is required";
         } else if (password.length < 6) {
@@ -56,7 +56,7 @@ const Signup = () => {
                 "Password must be at least 6 characters";
         }
 
-        // Confirm Password Validation
+        // Confirming password validation
         if (!confirmPassword.trim()) {
             newErrors.confirmPassword =
                 "Please confirm your password";
@@ -91,7 +91,6 @@ const Signup = () => {
             // Automatically log in
             login(data.token, data.user);
 
-            // Redirect to Home
             navigate("/", { replace: true });
 
         } catch (err) {
@@ -213,7 +212,7 @@ const Signup = () => {
                         )}
                     </div>
 
-                    {/* Confirm Password */}
+                    {/* Confirm password */}
                     <div className="auth-input-group">
                         <label>Confirm Password</label>
 
